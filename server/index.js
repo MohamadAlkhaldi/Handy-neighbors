@@ -10,6 +10,9 @@ app.use(express.static(__dirname + '/../react-client/dist'));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
+
+//blabla
+
 // app.post('/signup', function (req, res) {
 //   var data=req.body;
 //   db.save({req.body.username, req.body.password},function(err,data){
