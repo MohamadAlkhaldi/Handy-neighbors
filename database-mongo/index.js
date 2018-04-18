@@ -54,7 +54,7 @@ mohammad.save(function(err){
 
 // var x = 0  
 var save = function(data,callback){
-  var user = new User(data)
+  var user = new Technitian(data)
   user.save(function(err,dataRes){
     if(err){
       callback(err,null)

@@ -37,23 +37,22 @@ class Signup extends React.Component {
   }
 
    handleSubmit(event) {
-    //this.state.username  this.state.password
-    // $.ajax({
-    //   type : 'POST',
-    //   url: '/signup',
-    //   data: {
-    //     username: this.state.username,
-    //     email: this.state.email,
-    //     password: this.state.password
-    //   }, 
-    //   success: (data) => {
-    //     console.log('success', data)
-    //   },
-    //   error: (err) => {
-    //     console.log('err', err);
-    //   }
-    // });
-    // event.preventDefault();
+    // this.state.username  this.state.password
+    $.ajax({
+      type : 'POST',
+      url: '/signup',
+      data: {
+        username: this.state.username,
+        password: this.state.password
+      }, 
+      success: (data) => {
+        console.log('success', data)
+      },
+      error: (err) => {
+        console.log('err', err);
+      }
+    });
+    event.preventDefault();
   }
 
 
@@ -62,13 +61,13 @@ class Signup extends React.Component {
       <h1>Sign up</h1>
       <form onSubmit={this.handleSubmit}>
         <div>Username 
-        <input type="text" value={this.state.username} onChange={this.handleChangesU}/>
+        <input type="text" name="username" value={this.state.username} onChange={this.handleChangesU}/>
         </div>
          <div>Email 
          <input type="text" value={this.state.email} onChange={this.handleChangesE}/>
          </div>
         <div>Password 
-        <input type="password" value={this.state.password} onChange={this.handleChangesP}/></div>
+        <input type="password" name="password" value={this.state.password} onChange={this.handleChangesP}/></div>
         <div>
         <input type="submit"/></div>
       </form>
