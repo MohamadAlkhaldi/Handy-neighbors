@@ -22,7 +22,7 @@ app.use(bodyParser.json())
 
 app.post('/', function (req, res) {
   var data=req.body;
-  db.findOne({data.username},function(err,datares){
+  db.findOne(data.username,function(err,datares){
   	if(err){
   		res.send(err)
   	}
