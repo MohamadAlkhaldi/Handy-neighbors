@@ -1,36 +1,34 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import List from './components/List.jsx';
+import Signin from './Signin.jsx';
+import Signup from './Signup.jsx';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { 
-      items: []
-    }
-  }
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-  componentDidMount() {
-    $.ajax({
-      url: '/items', 
-      success: (data) => {
-        this.setState({
-          items: data
-        })
-      },
-      error: (err) => {
-        console.log('err', err);
-      }
-    });
-  }
 
-  render () {
-    return (<div>
-      <h1>Item List</h1>
-      <List items={this.state.items}/>
-    </div>)
-  }
-}
+const Main = () => (
+  <Router>
+    <div>
+      <ul>
+        <li>
+          <Link to="/signin">Signin</Link>
+        </li>
+        <li>
+          <Link to="/signup">Signup</Link>
+        </li>
+       
+      </ul>
 
-ReactDOM.render(<App />, document.getElementById('app'));
+      <hr />
+
+      <Route exact path="/signin" component={Signin} />
+      <Route path="/signup" component={Signup} />
+    
+    </div>
+  </Router>
+);
+
+ReactDOM.render(<Main />, document.getElementById('route'));
+
