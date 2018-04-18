@@ -52,7 +52,7 @@ mohammad.save(function(err){
   }
 })
 
-// var 
+// var x = 0  
 var save = function(data,callback){
   var user = new User(data)
   user.save(function(err,dataRes){
