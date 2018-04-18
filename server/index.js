@@ -1,26 +1,35 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-// UNCOMMENT THE DATABASE YOU'D LIKE TO USE
-// var items = require('../database-mysql');
-// var items = require('../database-mongo');
-
+var db = require('../database-mongo/index.js');
 var app = express();
+//----------------------------------------------------------
+app.use(express.static(__dirname + '/../react-client/dist'));
+//----------------------------------------------------------
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
-// UNCOMMENT FOR REACT
-// app.use(express.static(__dirname + '/../react-client/dist'));
+// app.post('/signup', function (req, res) {
+//   var data=req.body;
+//   db.save({req.body.username, req.body.password},function(err,data){
+//   		if(err){
+//   			console.log(err)
+//   		}
+//   		res.send(data);
 
-// UNCOMMENT FOR ANGULAR
-// app.use(express.static(__dirname + '/../angular-client'));
-// app.use(express.static(__dirname + '/../node_modules'));
+//   })
+  
+// });
 
-app.get('/items', function (req, res) {
-  items.selectAll(function(err, data) {
-    if(err) {
-      res.sendStatus(500);
-    } else {
-      res.json(data);
-    }
-  });
+app.post('/', function (req, res) {
+  var data=req.body;
+  db.findOne({data.username},function(err,datares){
+  	if(err){
+  		res.send(err)
+  	}
+  	res.redirect('index');
+  })
+ 	
+  
 });
 
 app.listen(3000, function() {
