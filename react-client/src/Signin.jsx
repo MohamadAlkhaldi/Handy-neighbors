@@ -26,7 +26,7 @@ class Signin extends React.Component {
 
   handleChangesP(event) {
     this.setState({password: event.target.value})
-    //console.log(this.state.password)
+    console.log(this.state.password)
   }
 
    handleSubmit(event) {
@@ -50,13 +50,21 @@ class Signin extends React.Component {
 
 
   render () {
-    return (<div>
+    return (<div className="container">
       <h1>Sign in</h1>
-      <form onSubmit={this.handleSubmit}>
-        <div>Username <input type="text" value={this.state.username} onChange={this.handleChangesU}/></div>
-        <div>Password <input type="password" value={this.state.password} onChange={this.handleChangesP}/></div>
-        <div><input type="submit"/></div>
-      </form>
+      <div >
+        <form onSubmit={this.handleSubmit}>
+          <div className="form-group">
+            <label >Username:</label>
+            <input type="username" className="form-control" id="username" placeholder="Enter username" name="username" value={this.state.username} onChange={this.handleChangesU}/>
+          </div>
+          <div className="form-group">
+            <label >Password:</label>
+            <input type="password" className="form-control" id="pwd" placeholder="Enter password" name="pwd" value={this.state.password} onChange={this.handleChangesP}/>
+          </div>
+          <button type="submit" className="btn btn-default">Submit</button>
+        </form>
+      </div>
     </div>)
   }
 }
