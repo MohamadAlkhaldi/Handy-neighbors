@@ -16,7 +16,7 @@ class Signin extends React.Component {
   }
 
   // componentDidMount() {
-  // }
+  // d}
 
   handleChangesU(event) {
     this.setState({username: event.target.value})
@@ -30,22 +30,22 @@ class Signin extends React.Component {
   }
 
    handleSubmit(event) {
-    // this.state.username  this.state.password
-    // $.ajax({
-    //   type : 'POST',
-    //   url: '/',
-    //   data: {
-    //     username: this.state.username,
-    //     password: this.state.password
-    //   }, 
-    //   success: (data) => {
-    //     console.log('success', data)
-    //   },
-    //   error: (err) => {
-    //     console.log('err', err);
-    //   }
-    // });
-    // event.preventDefault();
+   
+    $.ajax({
+      type : 'POST',
+      url: '/signin',
+      data: {
+        username: this.state.username,
+        password: this.state.password
+      }, 
+      success: (data) => {
+        console.log('success', data)
+      },
+      error: (err) => {
+        console.log('err', err);
+      }
+    });
+    event.preventDefault();
   }
 
 
