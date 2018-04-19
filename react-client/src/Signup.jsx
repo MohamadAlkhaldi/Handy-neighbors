@@ -7,18 +7,19 @@ class Signup extends React.Component {
     super(props);
     this.state = { 
       username: '',
-      email: '',
-      password: ''
+      phonenumber: +962,
+      skills : {plumper : false,
+                carpentr: false},
+      password: '',
+      location: ''
 
     }
     this.handleChangesU = this.handleChangesU.bind(this);
     this.handleChangesP = this.handleChangesP.bind(this);
-    this.handleChangesE = this.handleChangesE.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChangesPh = this.handleChangesPh.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleInputSkills = this.handleInputSkills.bind(this)
   }
-
-  // componentDidMount() {
-  // }
 
   handleChangesU(event) {
     this.setState({username: event.target.value})
@@ -31,13 +32,17 @@ class Signup extends React.Component {
     console.log(this.state.password)
   }
 
-  handleChangesE(event) {
-    this.setState({email: event.target.value})
-    console.log(this.state.email)
+  handleChangesPh(event) {
+    this.setState({phonenumber: event.target.value})
+    console.log(this.state.phonenumber)
+  }
+
+  handleInputSkills(event){
+    this.setState({skills: {plumper: event.target.checked}})
+    //console.log(this.state.skills.plumper)
   }
 
    handleSubmit(event) {
-    // this.state.username  this.state.password
     $.ajax({
       type : 'POST',
       url: '/signup',
@@ -63,12 +68,19 @@ class Signup extends React.Component {
         <div>Username 
         <input type="text" name="username" value={this.state.username} onChange={this.handleChangesU}/>
         </div>
-         <div>Email 
-         <input type="text" value={this.state.email} onChange={this.handleChangesE}/>
+         <div>Phone number
+         <input type="text" value={this.state.phonenumber} onChange={this.handleChangesPh}/>
          </div>
         <div>Password 
         <input type="password" name="password" value={this.state.password} onChange={this.handleChangesP}/></div>
         <div>
+        <div>Skills
+        <input
+            name="plumper"
+            type="checkbox"
+            checked={this.state.skills.plumper}
+            onChange={this.handleInputSkills} />
+        </div>
         <input type="submit"/></div>
       </form>
     </div>)
