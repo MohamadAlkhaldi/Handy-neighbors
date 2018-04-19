@@ -13,17 +13,28 @@ app.use(bodyParser.json())
 
 //blabla
 
-// app.post('/signup', function (req, res) {
-//   var data=req.body;
-//   db.save({req.body.username, req.body.password},function(err,data){
-//   		if(err){
-//   			console.log(err)
-//   		}
-//   		res.send(data);
+app.post('/signin', function (req, res) {
+  var username = req.body.username;
+  var pass = req.body.password;
 
-//   })
+  db.Technitian.findOne({username:'Nooreddein'},function(err,data){
+  	if(err){
+  		console.log(err)
+  	}
+  	bcrypt.compare(pass,data.password,function(err,isMatch){
+  		if(isMatch){
+  			console.log('access valid',isMatch)
+  			
+  		}
+  		else{
+  			console.log(err)
+  		}
+  		
+
+  	})
+  });
   
-// });
+});
 
 app.post('/signup', function (req, res) {
   var data=req.body;
