@@ -17,7 +17,7 @@ app.post('/signin', function (req, res) {
   var username = req.body.username;
   var pass = req.body.password;
 
-  db.Technitian.findOne({username:'Nooreddein'},function(err,data){
+  db.Technitian.findOne({username:username},function(err,data){
   	if(err){
   		console.log(err)
   	}
