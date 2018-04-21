@@ -9,7 +9,8 @@ class Home extends React.Component {
     super(props);
     this.state = {
       longitude: '',
-      laltitude: ''
+      laltitude: '',
+      mechs: []
     }
     //this.handleChangesU = this.handleChangesU.bind(this);
    this.handleChangesLongitude = this.handleChangesLongitude.bind(this)
@@ -41,6 +42,7 @@ class Home extends React.Component {
 
       }, 
       success: (data) => {
+        this.setState({mechs : data})
         console.log('success', data)
       },
       error: (err) => {
@@ -71,7 +73,7 @@ class Home extends React.Component {
               </form>
               </div>
               <div className="col" style={{margin: '80px'}}>
-              <MechList/>
+              <MechList mechs={this.state.mechs}/>
               </div>
               </div>
             </div>)
