@@ -4,9 +4,13 @@ class Mechanic extends React.Component{
    
         render(){
             return(
+                <li className="list-group-item">
                 <div>
-                <li>{this.props.name}</li>
+                <h4>{this.props.mech.username}</h4>
+                <p>Distance: {this.props.mech.distance}</p>
+                <p>Mobile: {this.props.mech.phonenumber}</p>
                 </div>
+                </li>
                 )
             }
         

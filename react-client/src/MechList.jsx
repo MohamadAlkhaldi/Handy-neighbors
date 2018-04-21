@@ -5,13 +5,30 @@ class MechList extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            names:['sara', 'fatima', 'amira']
+            testList:[{
+                    username: 'Mohamad',
+                    phonenumber: +9626466464,
+                    distance: "1km"
+            },
+            {
+                    username: 'Hasan',
+                    phonenumber: +9626466464,
+                    distance: "1.3km"
+            }, 
+            {
+                    username: 'Saqr',
+                    phonenumber: +9626466464,
+                    distance: "2km"
+            }]
         }
     }
         render(){
+
             return(
-                <div>
-                {this.state.names.map((name)=><Mechanic name={name}/>)}
+                <div style={{border:'solid', 'borderRadius': '15px'}}>
+                <ul style={{backgrondColor: '#E44F4F'}} className="list-group">
+                {this.state.testList.map((mech)=><Mechanic mech={mech} key={'d'+mech.username}/>)}
+                </ul>
                 </div>
                 )
             }

@@ -51,15 +51,15 @@ class Home extends React.Component {
   }
 
   render () {
-    function Component(){
-      var dimensions = [
-        { width:800, height: 1200 },
-        { width: 800, height: 600 }]
-      }
+   
+      // var dimensions = [
+      //   { width:800, height: 1200 },
+      //   { width: 1000, height: 600 }]
+      
 
-    return (<div className="container">
-              <Columns>
-              <div>
+    return (<div className="container" >
+              <div className="row">
+              <div className="col">
               <h1>Home</h1>
               <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
@@ -70,8 +70,10 @@ class Home extends React.Component {
                 <button type="submit" className="btn btn-default">Submit</button>
               </form>
               </div>
-              <div style={{margin: '80px'}}><MechList/></div>
-              </Columns>
+              <div className="col" style={{margin: '80px'}}>
+              <MechList/>
+              </div>
+              </div>
             </div>)
   }
 }

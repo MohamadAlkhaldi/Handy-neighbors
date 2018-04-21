@@ -12,7 +12,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 const Main = () => (
   <Router>
     <div>
-      <nav className="navbar navbar-default">
+      <nav className="navbar navbar-inverse">
         <div className="container-fluid">
           <div className="navbar-header">
             <a className="navbar-brand" href="#">Handy Neighbors</a>
