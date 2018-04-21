@@ -81,30 +81,55 @@ class Signup extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className="container">
         <h1>Sign up</h1>
         <form onSubmit={this.handleSubmit}>
-          <div>Username 
-            <input type="text" name="username" value={this.state.username} onChange={this.handleChangesU}/>
+          <div className="form-group">
+            <label >Username:</label>
+            <input className="form-control" id="username" placeholder="Enter username" name="username" value={this.state.username} onChange={this.handleChangesU}/>
           </div>
-          <div>Phone number
-            <input type="text" value={this.state.phonenumber} onChange={this.handleChangesPh}/>
+           <div className="form-group">
+            <label >Phone number:</label>
+            <input className="form-control" id="phoneNumber" placeholder="Enter Phone number" name="phoneNumber" value={this.state.phonenumber} onChange={this.handleChangesPh}/>
+          </div> 
+          <div className="form-group">
+            <label >Password:</label>
+            <input type="password" className="form-control" id="pwd" placeholder="Enter password" name="pwd" value={this.state.password} onChange={this.handleChangesP}/>
           </div>
-          <div>Password 
-            <input type="password" name="password" value={this.state.password} onChange={this.handleChangesP}/></div>
-          
-          <div>Location 
-            <input  type="text" name="location" value={this.state.location} onChange={this.handleChangesLocation}/>
+            <div className="form-group">
+            <label>Location:</label>
+            <input className="form-control" id="location" placeholder="Enter Location" name="location" value={this.state.location} onChange={this.handleChangesLocation}/>
           </div>
-          <div>
-            <input className="btn btn-default" type="submit"/>
-          </div>
+          <button type="submit" className="btn btn-default">Submit</button>
         </form>
+      
       </div>)
   }
 }
 
 export default Signup;
+
+// div>
+//         <h1>Sign up</h1>
+//         <form onSubmit={this.handleSubmit}>
+//           <div>Username 
+//             <input type="text" name="username" value={this.state.username} onChange={this.handleChangesU}/>
+//           </div>
+//           <div>Phone number
+//             <input type="text" value={this.state.phonenumber} onChange={this.handleChangesPh}/>
+//           </div>
+//           <div>Password 
+//             <input type="password" name="password" value={this.state.password} onChange={this.handleChangesP}/></div>
+          
+//           <div>Location 
+//             <input  type="text" name="location" value={this.state.location} onChange={this.handleChangesLocation}/>
+//           </div>
+//           <div>
+//             <input className="btn btn-default" type="submit"/>
+//           </div>
+//         </form>
+//       /div> 
+
 
 
           //   Skills: plumper
