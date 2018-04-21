@@ -2,8 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 
-
-
 class Signup extends React.Component {
   constructor(props) {
     super(props);
@@ -12,15 +10,18 @@ class Signup extends React.Component {
       phonenumber: +962,
       // skills : '',
       password: '',
-      location: ''
+      longitude: '',
+      laltitude: ''
 
     }
     this.handleChangesU = this.handleChangesU.bind(this);
     this.handleChangesP = this.handleChangesP.bind(this);
     this.handleChangesPh = this.handleChangesPh.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    //this.handleInputSkills = this.handleInputSkills.bind(this);
-    this.handleChangesLocation = this.handleChangesLocation.bind(this)
+    //this.handleInputSkills = this.handleInputSkills.bind(this);altitude
+    this.handleChangesLongitude = this.handleChangesLongitude.bind(this)
+    this.handleChangesLaltitude = this.handleChangesLaltitude.bind(this)
+
   }
 
   handleChangesU(event) {
@@ -50,9 +51,15 @@ class Signup extends React.Component {
   //}
 
 
-  handleChangesLocation(event) {
-    this.setState({location: event.target.value})
-    console.log(this.state.location)
+  handleChangesLongitude(event) {
+    this.setState({longitude: event.target.value})
+    console.log(this.state.longitude)
+    
+  }
+
+  handleChangesLaltitude(event) {
+    this.setState({laltitude: event.target.value})
+    console.log(this.state.laltitude)
     
   }
 
@@ -65,7 +72,8 @@ class Signup extends React.Component {
         password: this.state.password,
         phonenumber: this.state.phonenumber,
         //skills: this.state.skills,
-        location: this.state.location
+        longitude: this.state.longitude,
+        laltitude: this.state.laltitude
 
       }, 
       success: (data) => {
@@ -98,8 +106,10 @@ class Signup extends React.Component {
           </div>
             <div className="form-group">
             <label>Location:</label>
-            <input className="form-control" id="location" placeholder="Enter Location" name="location" value={this.state.location} onChange={this.handleChangesLocation}/>
-          </div>
+            <input className="form-control" id="longitude" placeholder="longitude" name="longitude" value={this.state.longitude} onChange={this.handleChangesLongitude}/>
+            <input className="form-control" id="laltitude" placeholder="laltitude" name="laltitude" value={this.state.laltitude} onChange={this.handleChangesLaltitude}/>
+         
+            </div>
           <button type="submit" className="btn btn-default">Submit</button>
         </form>
       
