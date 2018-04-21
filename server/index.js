@@ -42,8 +42,11 @@ bcrypt.hash(data.password,saltRounds,function(err,hash){
 	if(err){
 		console.log(err)
 	}db.save({
-			username:req.body.username,
-			password:hash
+			username:data.username,
+			password:hash,
+      phonenumber:data.phonenumber,
+      longitude: data.longitude,
+      laltitude: data.laltitude
 		},function(err,data){
 			if(err){
 				console.log(err)
@@ -95,6 +98,14 @@ app.get('/signup', function (req, res) {
  	
   
 // });
+
+app.get('/', function (req, res) {
+
+    
+  console.log(req.body);
+  res.send("");
+});
+
 
 
 app.listen(3001, function() {
