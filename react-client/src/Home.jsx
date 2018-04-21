@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Columns from 'react-columns';
-//import MechList from './MechList.jsx'
+import MechList from './MechList.jsx'
 
 class Home extends React.Component {
   constructor(props) {
@@ -70,7 +70,7 @@ class Home extends React.Component {
                 <button type="submit" className="btn btn-default">Submit</button>
               </form>
               </div>
-              <div style={{margin: '80px'}}>sth</div>
+              <div style={{margin: '80px'}}><MechList/></div>
               </Columns>
             </div>)
   }
