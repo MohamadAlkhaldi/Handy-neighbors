@@ -11,7 +11,9 @@ class Home extends React.Component {
     }
     //this.handleChangesU = this.handleChangesU.bind(this);
    this.handleChangesLongitude = this.handleChangesLongitude.bind(this)
-    this.handleChangesLaltitude = this.handleChangesLaltitude.bind(this)
+   this.handleChangesLaltitude = this.handleChangesLaltitude.bind(this)
+   this.handleSubmit = this.handleSubmit.bind(this)
+
   }
 
   handleChangesLongitude(event) {
