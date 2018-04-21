@@ -13,17 +13,28 @@ app.use(bodyParser.json())
 
 //blabla
 
-// app.post('/signup', function (req, res) {
-//   var data=req.body;
-//   db.save({req.body.username, req.body.password},function(err,data){
-//   		if(err){
-//   			console.log(err)
-//   		}
-//   		res.send(data);
+app.post('/signin', function (req, res) {
+  var username = req.body.username;
+  var pass = req.body.password;
 
-//   })
+  db.Technitian.findOne({username:username},function(err,data){
+  	if(err){
+  		console.log(err)
+  	}
+  	bcrypt.compare(pass,data.password,function(err,isMatch){
+  		if(isMatch){
+  			console.log('access valid',isMatch)
+  			
+  		}
+  		else{
+  			console.log(err)
+  		}
+  		
+
+  	})
+  });
   
-// });
+});
 
 app.post('/signup', function (req, res) {
   var data=req.body;
@@ -31,8 +42,11 @@ bcrypt.hash(data.password,saltRounds,function(err,hash){
 	if(err){
 		console.log(err)
 	}db.save({
-			username:req.body.username,
-			password:hash
+			username:data.username,
+			password:hash,
+      phonenumber:data.phonenumber,
+      longitude: data.longitude,
+      laltitude: data.laltitude
 		},function(err,data){
 			if(err){
 				console.log(err)
@@ -84,6 +98,14 @@ app.get('/signup', function (req, res) {
  	
   
 // });
+
+app.get('/', function (req, res) {
+
+    
+  console.log(req.body);
+  res.send("");
+});
+
 
 
 app.listen(3001, function() {

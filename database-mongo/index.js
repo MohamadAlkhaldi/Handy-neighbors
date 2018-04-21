@@ -21,9 +21,9 @@ db.once('open', function() {
 var techSchema = mongoose.Schema({
   username:String,
   password:String,
-  skills:Array,
   phonenumber:Number,
-  location:String
+  longitude:String,
+  laltitude:String
 })
 
 // var User = mongoose.model('User', userSchema);
