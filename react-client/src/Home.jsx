@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
+import Columns from 'react-columns';
+//import MechList from './MechList.jsx'
 
 class Home extends React.Component {
   constructor(props) {
@@ -49,7 +51,15 @@ class Home extends React.Component {
   }
 
   render () {
+    function Component(){
+      var dimensions = [
+        { width:800, height: 1200 },
+        { width: 800, height: 600 }]
+      }
+
     return (<div className="container">
+              <Columns>
+              <div>
               <h1>Home</h1>
               <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
@@ -59,6 +69,9 @@ class Home extends React.Component {
                 </div>
                 <button type="submit" className="btn btn-default">Submit</button>
               </form>
+              </div>
+              <div style={{margin: '80px'}}><MechList /></div>
+              </Columns>
             </div>)
   }
 }
