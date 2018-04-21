@@ -113,7 +113,7 @@ app.post('/', function (req, res) {
     ; 
   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
   var d = R * c; // Distance in km
-  return d;
+  return Math.floor(d);
 }
 
 function deg2rad(deg) {
@@ -125,7 +125,7 @@ function deg2rad(deg) {
   // var closetPos;
   // var minDist=99999999;
   // var locations,distance;
-  db.Technitian.find({},'username longitude laltitude',function(err,techs){
+  db.Technitian.find({},'username longitude laltitude distance phonenumber',function(err,techs){
     
   for (var i = 0; i < techs.length; i++) {
       var dis = getDistanceFromLatLonInKm(user.laltitude , user.longitude, techs[i].laltitude, techs[i].longitude)

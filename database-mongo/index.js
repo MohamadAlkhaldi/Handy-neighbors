@@ -23,7 +23,8 @@ var techSchema = mongoose.Schema({
   password:String,
   phonenumber:Number,
   longitude:String,
-  laltitude:String
+  laltitude:String,
+  distance:Number
 })
 
 // var User = mongoose.model('User', userSchema);
@@ -45,12 +46,7 @@ var Technitian = mongoose.model('Tecnitian',techSchema)
 //     }
 //   })
 
-   var mohammad = new Technitian({username:'mohamme',password:'bla',skills:["plumper","carpentr"], phonenumber:12345678,location:"Amman,Kahlde"})
-mohammad.save(function(err){
-  if(err){
-    console.log(err)
-  }
-})
+
 
 // var x = 0  
 var save = function(data,callback){
