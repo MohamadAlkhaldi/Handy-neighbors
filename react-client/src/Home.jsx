@@ -70,7 +70,7 @@ class Home extends React.Component {
                 <button type="submit" className="btn btn-default">Submit</button>
               </form>
               </div>
-              <div style={{margin: '80px'}}><MechList /></div>
+              <div style={{margin: '80px'}}>sth</div>
               </Columns>
             </div>)
   }
