@@ -4,6 +4,7 @@ import $ from 'jquery';
 import Columns from 'react-columns';
 import MechList from './MechList.jsx'
 
+
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -54,9 +55,9 @@ class Home extends React.Component {
 
   render () {
    
-      // var dimensions = [
-      //   { width:800, height: 1200 },
-      //   { width: 1000, height: 600 }]
+      // const back = {
+      //   backgroundImage : `url(${img})`
+      // }
       
 
     return (<div className="container" >

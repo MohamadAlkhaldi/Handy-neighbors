@@ -4,23 +4,6 @@ import Mechanic from './Mechanic.jsx'
 class MechList extends React.Component{
     constructor(props){
         super(props);
-        // this.state={
-        //     testList:[{
-        //             username: 'Mohamad',
-        //             phonenumber: +9626466464,
-        //             distance: "1km"
-        //     },
-        //     {
-        //             username: 'Hasan',
-        //             phonenumber: +9626466464,
-        //             distance: "1.3km"
-        //     }, 
-        //     {
-        //             username: 'Saqr',
-        //             phonenumber: +9626466464,
-        //             distance: "2km"
-        //     }]
-        // }
     }
         render(){
 
