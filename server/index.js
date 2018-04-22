@@ -141,7 +141,7 @@ function deg2rad(deg) {
 
 techs.sort(compare);
 var arr=[];
-for (var i = techs.length-5; i < techs.length; i++) {
+for (var i = 0; i < 5; i++) {
   arr.push(techs[i])
 }
   // var closetdis=techs[0].distance;
