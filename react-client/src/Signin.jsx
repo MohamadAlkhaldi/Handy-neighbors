@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
+import MechSignedIn from './MechSignedIn.jsx';
 
 class Signin extends React.Component {
   constructor(props) {
@@ -61,6 +62,7 @@ class Signin extends React.Component {
           </div>
           <button type="submit" className="btn btn-warning" style={{color:'black'}}>Submit</button>
         </form>
+        <MechSignedIn />
       </div>
     </div>)
   }
