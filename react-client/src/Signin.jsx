@@ -15,9 +15,6 @@ class Signin extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  // componentDidMount() {
-  // d}
-
   handleChangesU(event) {
     this.setState({username: event.target.value})
     console.log(this.state.username)
@@ -62,7 +59,7 @@ class Signin extends React.Component {
             <label >Password:</label>
             <input type="password" className="form-control" id="pwd" placeholder="Enter password" name="pwd" value={this.state.password} onChange={this.handleChangesP}/>
           </div>
-          <button type="submit" className="btn btn-default">Submit</button>
+          <button type="submit" className="btn btn-warning" style={{color:'black'}}>Submit</button>
         </form>
       </div>
     </div>)

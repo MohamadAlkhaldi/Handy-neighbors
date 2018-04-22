@@ -19,7 +19,7 @@ const Main = () => (
       <nav className="navbar navbar-inverse">
         <div className="container-fluid">
           <div className="navbar-header">
-            <a className="navbar-brand" href="#">Handy Neighbors</a>
+            <a className="navbar-brand " href="#" style={{color:'#E9AB17'}}>Handy Neighbors</a>
           </div>
           <ul className="nav navbar-nav">
             <li><Link to="/">Home</Link></li>
