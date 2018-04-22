@@ -8,7 +8,7 @@ class MechList extends React.Component{
         render(){
 
             return(
-                <div style={{border:'solid', 'borderRadius': '15px'}}>
+                <div style={{border:'solid', 'borderRadius': '15px', 'borderColor' : '#E9AB17'}}>
                 <ul style={{backgrondColor: '#E44F4F'}} className="list-group">
                 {this.props.mechs.map((mech)=><Mechanic mech={mech} key={'d'+mech.username}/>)}
                 </ul>

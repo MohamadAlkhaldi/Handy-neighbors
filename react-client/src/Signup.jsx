@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import { BrowserRouter as Router, Route, Redirect, Link } from "react-router-dom";
+import {Redirect} from "react-router-dom";
 
 class Signup extends React.Component {
   constructor(props) {
@@ -10,7 +10,6 @@ class Signup extends React.Component {
       redirect: false,
       username: '',
       phonenumber: +962,
-      // skills : '',
       password: '',
       longitude: '',
       laltitude: ''
@@ -20,7 +19,6 @@ class Signup extends React.Component {
     this.handleChangesP = this.handleChangesP.bind(this);
     this.handleChangesPh = this.handleChangesPh.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    //this.handleInputSkills = this.handleInputSkills.bind(this);altitude
     this.handleChangesLongitude = this.handleChangesLongitude.bind(this)
     this.handleChangesLaltitude = this.handleChangesLaltitude.bind(this)
 
@@ -41,16 +39,6 @@ class Signup extends React.Component {
     this.setState({phonenumber: event.target.value})
     console.log(this.state.phonenumber)
   }
-
-  // handleInputSkills(event){
-  //   var checkboxName = event.target.name
-  //   // if(event.target.checked){
-  //   // this.setState({skills: checkboxName})
-  //   // } else 
-  //   // {this.setState({skills: ''});
-  //     console.log(this.state.skills)
-  //   }
-  //}
 
 
   handleChangesLongitude(event) {
@@ -73,7 +61,6 @@ class Signup extends React.Component {
         username: this.state.username,
         password: this.state.password,
         phonenumber: this.state.phonenumber,
-        //skills: this.state.skills,
         longitude: this.state.longitude,
         laltitude: this.state.laltitude
 
@@ -117,7 +104,7 @@ class Signup extends React.Component {
             <input className="form-control" id="laltitude" placeholder="laltitude" name="laltitude" value={this.state.laltitude} onChange={this.handleChangesLaltitude}/>
          
             </div>
-          <button type="submit" className="btn btn-default">Submit</button>
+          <button type="submit" className="btn btn-warning" style={{color:'black'}}>Submit</button>
         </form>
       
       </div>)
@@ -125,40 +112,3 @@ class Signup extends React.Component {
 }
 
 export default Signup;
-
-// div>
-//         <h1>Sign up</h1>
-//         <form onSubmit={this.handleSubmit}>
-//           <div>Username 
-//             <input type="text" name="username" value={this.state.username} onChange={this.handleChangesU}/>
-//           </div>
-//           <div>Phone number
-//             <input type="text" value={this.state.phonenumber} onChange={this.handleChangesPh}/>
-//           </div>
-//           <div>Password 
-//             <input type="password" name="password" value={this.state.password} onChange={this.handleChangesP}/></div>
-          
-//           <div>Location 
-//             <input  type="text" name="location" value={this.state.location} onChange={this.handleChangesLocation}/>
-//           </div>
-//           <div>
-//             <input className="btn btn-default" type="submit"/>
-//           </div>
-//         </form>
-//       /div> 
-
-
-
-          //   Skills: plumper
-          //   <div><input
-          //     name="plumper"
-          //     type="checkbox"
-          //     //checked={this.state.skills.plumper}
-          //     onChange={this.handleInputSkills} /></div>
-          //   carpentr 
-          //     <div><input
-          //     name="carpentr"
-          //     type="checkbox"
-          //     //checked={this.state.skills.carpentr}
-          //     onChange={this.handleInputSkills} /></div>
-          // </div>
