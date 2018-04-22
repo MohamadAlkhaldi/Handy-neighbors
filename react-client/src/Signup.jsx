@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
+import { BrowserRouter as Router, Route, Redirect, Link } from "react-router-dom";
 
 class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
+      redirect: false,
       username: '',
       phonenumber: +962,
       // skills : '',
@@ -77,6 +79,7 @@ class Signup extends React.Component {
 
       }, 
       success: (data) => {
+        this.setState({ redirect: true })
         console.log('success', data)
       },
       error: (err) => {
@@ -88,6 +91,10 @@ class Signup extends React.Component {
 
 
   render () {
+     const { redirect } = this.state;
+      if (redirect) {
+       return <Redirect to='/signin'/>;
+     }
     return (
       <div className="container">
         <h1>Sign up</h1>
