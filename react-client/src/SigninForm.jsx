@@ -20,6 +20,7 @@ class SigninForm extends React.Component {
 
 
   handleChangesU(event) {
+    this.props.setUsername(event.target.value)
     this.setState({username: event.target.value})
     
   }
