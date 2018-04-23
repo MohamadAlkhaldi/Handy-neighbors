@@ -14,6 +14,7 @@ app.use(bodyParser.json())
 //blabla
 
 app.post('/signin', function (req, res) {
+
   var username = req.body.username;
   var pass = req.body.password;
 
@@ -21,17 +22,19 @@ app.post('/signin', function (req, res) {
     if(err){
       console.log(err)
     }
-    bcrypt.compare(pass,data.password,function(err,isMatch){
-      if(isMatch){
-        console.log('access valid',isMatch)
-        
-      }
-      else{
-        console.log(err)
-      }
-      
-
-    })
+    if(data){
+      bcrypt.compare(pass,data.password,function(err,isMatch){
+          if(isMatch){
+          console.log('access valid') 
+          res.send(isMatch)
+          }
+          else{
+          console.log('wrong username or password')
+          res.send(isMatch)
+          }
+        })
+    } else {console.log('username not existed')
+            res.send(false)}
   });
   
 });
