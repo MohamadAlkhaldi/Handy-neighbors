@@ -13,6 +13,11 @@ app.use(bodyParser.json())
 
 //blabla
 
+app.post('/service', function (req, res) {
+  res.send(req.body)
+})
+
+
 app.post('/signin', function (req, res) {
 
   var username = req.body.username;
@@ -26,7 +31,11 @@ app.post('/signin', function (req, res) {
       bcrypt.compare(pass,data.password,function(err,isMatch){
           if(isMatch){
           console.log('access valid') 
-          res.send(isMatch)
+          var obj = {
+              username : data.username,
+              valid : isMatch
+          }
+          res.send(obj)
           }
           else{
           console.log('wrong username or password')

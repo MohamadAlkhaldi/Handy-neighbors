@@ -1,4 +1,7 @@
 import React from 'react';
+import $ from 'jquery';
+import Signin from './Signin.jsx';
+
 
 class MechSignedIn extends React.Component{
 	constructor(props){
@@ -9,6 +12,7 @@ class MechSignedIn extends React.Component{
 			date: ''
 		}
 		this.handleChanges = this.handleChanges.bind(this)
+		this.handleSubmit = this.handleSubmit.bind(this)
 	}
 
 	handleChanges(event){
@@ -20,10 +24,34 @@ class MechSignedIn extends React.Component{
 		console.log(this.state[name])
 	}
 
+handleSubmit(event) {
+    
+    $.ajax({
+      type : 'POST',
+      url: '/service',
+      data: {
+        clientName: this.state.clientName,
+		service: this.state.service,
+		date: this.state.date
+      }, 
+      success: (data) => {
+        console.log(data)
+      },
+      error: (err) => {
+        console.log('err', err);
+      }
+    });
+    event.preventDefault();
+  }
+
+
 
 	render(){
 		return(
 			<div>
+			<div style={{margin:'10px'}}>
+          		<button className="btn btn-danger" onClick={this.props.toggle}>Signout</button>
+          	</div>
 			<form onSubmit={this.handleSubmit}>
 	          <div className="form-group">
 	            <label >Client Name:</label>
@@ -37,10 +65,9 @@ class MechSignedIn extends React.Component{
 	            <label >date</label>
 	            <input type="date" className="form-control" id="date" placeholder="Enter date" name="date" value={this.state.date} onChange={this.handleChanges}/>
 	          </div>
+	          <div><button type="submit" className="btn btn-warning" style={{color:'black'}} >Submit</button></div>
           </form>
-          <div>
-          	<button className="btn btn-danger" onClick={this.props.toggle}>Signout</button>
-          </div>
+          
 			</div>
 			)
 	}
