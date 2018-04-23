@@ -14,7 +14,24 @@ app.use(bodyParser.json())
 //blabla
 
 app.post('/service', function (req, res) {
-  res.send(req.body)
+    var obj = {
+      clientName: req.body.clientName,
+      service: req.body.service,
+      date: req.body.date
+    }
+  db.Technitian.findOne({username:req.body.username},'username services',function(err,data){
+    console.log(data)
+   data.services.push(obj);
+    db.save(data,function(err,data){
+      if(err){
+        console.log(err)
+      }
+      console.log(data)
+      res.send(data);
+    });
+    
+  })
+  
 })
 
 

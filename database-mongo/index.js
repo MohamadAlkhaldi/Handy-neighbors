@@ -24,7 +24,8 @@ var techSchema = mongoose.Schema({
   phonenumber:Number,
   longitude:String,
   laltitude:String,
-  distance:Number
+  distance:Number,
+  services:Array
 })
 
 // var User = mongoose.model('User', userSchema);
