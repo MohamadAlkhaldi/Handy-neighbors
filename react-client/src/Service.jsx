@@ -6,9 +6,9 @@ class Service extends React.Component{
             return(
                 <li className="list-group-item">
                 <div>
-                <h4>header</h4>
-                <p>this.props.service</p>
-                <p>Mobile</p>
+                <h4>{this.props.service.clientName}</h4>
+                <p>{this.props.service.service}</p>
+                <p>{this.props.service.date}</p>
                 </div>
                 </li>
                 )
