@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import Signin from './Signin.jsx';
+import ServicesList from './ServicesList.jsx';
 
 
 class MechSignedIn extends React.Component{
@@ -9,7 +10,8 @@ class MechSignedIn extends React.Component{
 		this.state = {
 			clientName: '',
 			service: '',
-			date: ''
+			date: '',
+			services: ['s1','s2', 's3']
 		}
 		this.handleChanges = this.handleChanges.bind(this)
 		this.handleSubmit = this.handleSubmit.bind(this)
@@ -25,17 +27,19 @@ class MechSignedIn extends React.Component{
 	}
 
 handleSubmit(event) {
-    
+     
     $.ajax({
       type : 'POST',
       url: '/service',
       data: {
+      	username: this.props.user,
         clientName: this.state.clientName,
 		service: this.state.service,
 		date: this.state.date
       }, 
       success: (data) => {
         console.log(data)
+
       },
       error: (err) => {
         console.log('err', err);
@@ -67,7 +71,9 @@ handleSubmit(event) {
 	          </div>
 	          <div><button type="submit" className="btn btn-warning" style={{color:'black'}} >Submit</button></div>
           </form>
-          
+          <div style={{margin: '80px'}}>
+          <ServicesList services={this.state.services} />
+          </div>
 			</div>
 			)
 	}

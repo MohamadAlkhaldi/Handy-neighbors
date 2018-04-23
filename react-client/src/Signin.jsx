@@ -8,7 +8,7 @@ class Signin extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      // username: '',
+      username: '',
       // password: '',
       childVisible: false
 
@@ -17,6 +17,7 @@ class Signin extends React.Component {
     // this.handleChangesP = this.handleChangesP.bind(this);
     // this.handleSubmit = this.handleSubmit.bind(this)
     this.toggle = this.toggle.bind(this)
+    this.setUsername = this.setUsername.bind(this)
   }
 
   // handleChangesU(event) {
@@ -35,6 +36,9 @@ class Signin extends React.Component {
     this.setState({childVisible : val})
   }
 
+  setUsername(user){
+    this.setState({username: user})
+  }
   //  handleSubmit(event) {
    
   //   // $.ajax({
@@ -73,11 +77,11 @@ class Signin extends React.Component {
     return(
       <div className='container'>
       <div>
-      {!this.state.childVisible ? <SigninForm toggle={this.toggle}/> : null
+      {!this.state.childVisible ? <SigninForm toggle={this.toggle} setUsername={this.setUsername}/> : null
       }
       </div>
       <div>
-        {this.state.childVisible ? <MechSignedIn toggle={this.toggle}/> : null
+        {this.state.childVisible ? <MechSignedIn toggle={this.toggle} user={this.state.username}/> : null
       }
       </div>
     </div>)
