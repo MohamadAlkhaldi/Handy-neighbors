@@ -11,7 +11,7 @@ class MechSignedIn extends React.Component{
 			clientName: '',
 			service: '',
 			date: '',
-			services: ['s1','s2', 's3']
+			services: []
 		}
 		this.handleChanges = this.handleChanges.bind(this)
 		this.handleSubmit = this.handleSubmit.bind(this)
@@ -38,7 +38,8 @@ handleSubmit(event) {
 		date: this.state.date
       }, 
       success: (data) => {
-        console.log(data)
+        console.log(data.services)
+        this.setState({services: data.services})
 
       },
       error: (err) => {
