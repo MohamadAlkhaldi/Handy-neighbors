@@ -38,6 +38,9 @@ class MechSignedIn extends React.Component{
 	            <input type="date" className="form-control" id="date" placeholder="Enter date" name="date" value={this.state.date} onChange={this.handleChanges}/>
 	          </div>
           </form>
+          <div>
+          	<button className="btn btn-danger" onClick={this.props.toggle}>Signout</button>
+          </div>
 			</div>
 			)
 	}
