@@ -4,6 +4,7 @@ import $ from 'jquery';
 import Columns from 'react-columns';
 import MechList from './MechList.jsx'
 
+
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -12,7 +13,6 @@ class Home extends React.Component {
       laltitude: '',
       mechs: []
     }
-    //this.handleChangesU = this.handleChangesU.bind(this);
    this.handleChangesLongitude = this.handleChangesLongitude.bind(this)
    this.handleChangesLaltitude = this.handleChangesLaltitude.bind(this)
    this.handleSubmit = this.handleSubmit.bind(this)
@@ -54,9 +54,9 @@ class Home extends React.Component {
 
   render () {
    
-      // var dimensions = [
-      //   { width:800, height: 1200 },
-      //   { width: 1000, height: 600 }]
+      // const back = {
+      //   backgroundImage : `url(${img})`
+      // }
       
 
     return (<div className="container" >
@@ -69,7 +69,7 @@ class Home extends React.Component {
                   <input className="form-control" id="longitude" placeholder="longitude" name="longitude" value={this.state.longitude} onChange={this.handleChangesLongitude}/>
                   <input className="form-control" id="laltitude" placeholder="laltitude" name="laltitude" value={this.state.laltitude} onChange={this.handleChangesLaltitude}/>
                 </div>
-                <button type="submit" className="btn btn-default">Submit</button>
+                <button type="submit" className="btn btn-warning" style={{color:'black'}}>Submit</button>
               </form>
               </div>
               <div className="col" style={{margin: '80px'}}>

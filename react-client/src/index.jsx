@@ -5,17 +5,21 @@ import $ from 'jquery';
 import Signin from './Signin.jsx';
 import Signup from './Signup.jsx';
 import Home from './Home.jsx';
-
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { HashRouter } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect, Link } from "react-router-dom";
 
 //
+
+
 const Main = () => (
-  <Router>
-    <div>
+  
+  <Router >
+  <HashRouter>
+    <div >
       <nav className="navbar navbar-inverse">
         <div className="container-fluid">
           <div className="navbar-header">
-            <a className="navbar-brand" href="#">Handy Neighbors</a>
+            <a className="navbar-brand " href="#" style={{color:'#E9AB17'}}>Handy Neighbors</a>
           </div>
           <ul className="nav navbar-nav">
             <li><Link to="/">Home</Link></li>
@@ -29,7 +33,9 @@ const Main = () => (
       <Route path="/signup" component={Signup} />
     
     </div>
+    </HashRouter>
   </Router>
+  
 );
 
 ReactDOM.render(<Main />, document.getElementById('route'));

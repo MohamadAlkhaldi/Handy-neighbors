@@ -1,7 +1,7 @@
 import React from'react';
-import Mechanic from './Mechanic.jsx'
+import Service from './Service.jsx'
 
-class MechList extends React.Component{
+class ServicesList extends React.Component{
     constructor(props){
         super(props);
     }
@@ -10,7 +10,7 @@ class MechList extends React.Component{
             return(
                 <div style={{border:'solid', 'borderRadius': '15px', 'borderColor' : '#E9AB17'}}>
                 <ul style={{backgrondColor: '#E44F4F'}} className="list-group">
-                {this.props.mechs.map((mech)=><Mechanic mech={mech} key={'d'+mech.username}/>)}
+                {this.props.services.map((service)=><Service service={service} />)}
                 </ul>
                 </div>
                 )
@@ -18,4 +18,4 @@ class MechList extends React.Component{
         
     }
 
-export default MechList
+export default ServicesList
