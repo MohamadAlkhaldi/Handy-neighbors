@@ -11,9 +11,32 @@ import { BrowserRouter as Router, Route, Redirect, Link } from "react-router-dom
 //
 
 
-const Main = () => (
-  
-  <Router >
+class Main extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      v : false
+    }
+    this.toggle = this.toggle.bind(this)
+    this.MySignin = this.MySignin.bind(this)
+  }
+
+  toggle(){
+    var val = !this.state.v
+    this.setState({v : val})
+  }
+
+  MySignin(props){
+      return (
+        <Signin
+          toggle={this.toggle} v={this.state.v}
+          {...props}
+        />
+      );
+    }
+
+  render(){
+  return (<Router >
   <HashRouter>
     <div >
       <nav className="navbar navbar-inverse">
@@ -29,14 +52,15 @@ const Main = () => (
         </div>
       </nav>
       <Route exact path="/" component={Home} />
-      <Route path="/signin" component={Signin} />
+      <Route path="/signin" render={this.MySignin} />
       <Route path="/signup" component={Signup} />
     
     </div>
     </HashRouter>
   </Router>
   
-);
+)}
+};
 
 ReactDOM.render(<Main />, document.getElementById('route'));
 
