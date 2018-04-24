@@ -15,11 +15,24 @@ class Main extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      v : false
+      v : false,
+      username: '',
+      services: []
     }
     this.toggle = this.toggle.bind(this)
     this.MySignin = this.MySignin.bind(this)
+    this.setUsername = this.setUsername.bind(this)
+    this.setServices = this.setServices.bind(this)
   }
+
+  setUsername(user){
+    this.setState({username: user})
+  }
+
+  setServices(arr){
+    this.setState({services: arr})
+  }
+
 
   toggle(){
     var val = !this.state.v
@@ -29,7 +42,7 @@ class Main extends React.Component {
   MySignin(props){
       return (
         <Signin
-          toggle={this.toggle} v={this.state.v}
+          toggle={this.toggle} v={this.state.v} username={this.state.username} setUsername={this.setUsername} services={this.state.services} setServices={this.setServices}
           {...props}
         />
       );

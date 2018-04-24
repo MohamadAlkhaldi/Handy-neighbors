@@ -41,6 +41,7 @@ class SigninForm extends React.Component {
       success: (data) => {
         console.log(data)
         if(data){
+          this.props.setServices(data.services)
           this.props.toggle()
         } else{
           console.log('wrong')

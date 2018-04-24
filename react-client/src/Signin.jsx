@@ -10,11 +10,12 @@ class Signin extends React.Component {
     super(props);
     this.state = { 
       username: '',
-      //childVisible: false
+      services: []
 
     }
     //this.toggle = this.toggle.bind(this)
-    this.setUsername = this.setUsername.bind(this)
+    // this.setUsername = this.setUsername.bind(this)
+    // this.setServices = this.setServices.bind(this)
   }
 
   // toggle(){
@@ -22,20 +23,24 @@ class Signin extends React.Component {
   //   this.setState({childVisible : val})
   // }
 
-  setUsername(user){
-    this.setState({username: user})
-  }
+  // setUsername(user){
+  //   this.setState({username: user})
+  // }
+
+  // setServices(arr){
+  //   this.setState({services: arr})
+  // }
   
   render () {
     
     return(
       <div className='container'>
       <div>
-      {!this.props.v ? <SigninForm toggle={this.props.toggle} setUsername={this.setUsername}/> : null
+      {!this.props.v ? <SigninForm toggle={this.props.toggle} setUsername={this.props.setUsername} setServices={this.props.setServices}/> : null
       }
       </div>
       <div>
-        {this.props.v ? <MechSignedIn toggle={this.props.toggle} user={this.state.username}/> : null
+        {this.props.v ? <MechSignedIn toggle={this.props.toggle} user={this.props.username} services={this.props.services} setServices={this.props.setServices}/> : null
       }
       </div>
     </div>)
