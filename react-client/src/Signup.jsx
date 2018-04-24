@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import {Redirect} from "react-router-dom";
+import OurMap from './OurMap.jsx';
 
 class Signup extends React.Component {
   constructor(props) {
@@ -11,8 +12,8 @@ class Signup extends React.Component {
       username: '',
       phonenumber: +962,
       password: '',
-      longitude: '',
-      laltitude: ''
+      longitude: 0,
+      laltitude: 0
 
     }
     this.handleChangesU = this.handleChangesU.bind(this);
@@ -21,8 +22,16 @@ class Signup extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChangesLongitude = this.handleChangesLongitude.bind(this)
     this.handleChangesLaltitude = this.handleChangesLaltitude.bind(this)
+    this.setLngLat = this.setLngLat.bind(this);
 
   }
+
+  setLngLat(lng, lat){
+    this.setState({longitude: lng,
+                   laltitude: lat})
+  }
+
+  
 
   handleChangesU(event) {
     this.setState({username: event.target.value})
@@ -52,6 +61,7 @@ class Signup extends React.Component {
     console.log(this.state.laltitude)
     
   }
+
 
    handleSubmit(event) {
     $.ajax({
@@ -104,8 +114,9 @@ class Signup extends React.Component {
             <input className="form-control" id="laltitude" placeholder="laltitude" name="laltitude" value={this.state.laltitude} onChange={this.handleChangesLaltitude}/>
          
             </div>
-          <button type="submit" className="btn btn-warning" style={{color:'black'}}>Submit</button>
+          <button type="submit" className="btn btn-warning btn-block btn-lg" style={{color:'black', marginBottom: '10px'}}>Submit</button>
         </form>
+        <OurMap setLngLat={this.setLngLat} longitude={this.state.longitude} laltitude={this.state.laltitude}/>
       
       </div>)
   }

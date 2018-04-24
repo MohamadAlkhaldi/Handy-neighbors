@@ -59,7 +59,7 @@ class Main extends React.Component {
           </div>
           <ul className="nav navbar-nav">
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/signin">Signin</Link></li>
+            <li><Link to="/signin" >Signin</Link></li>
             <li><Link to="/signup">Signup</Link></li>
           </ul>
         </div>

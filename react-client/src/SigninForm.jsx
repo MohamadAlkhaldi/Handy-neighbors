@@ -68,7 +68,7 @@ class SigninForm extends React.Component {
             <label >Password:</label>
             <input type="password" className="form-control" id="pwd" placeholder="Enter password" name="pwd" value={this.state.password} onChange={this.handleChangesP}/>
           </div>
-          <button type="submit" className="btn btn-warning" style={{color:'black'}} >Submit</button>
+          <button type="submit" className="btn btn-warning btn-lg" style={{color:'black'}} >Submit</button>
         </form>
        
       </div>
