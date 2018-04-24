@@ -59,7 +59,7 @@ class Home extends React.Component {
       // }
       
 
-    return (<div className="container" >
+    return (<div className="container" style={{'marginTop':'50px'}}>
               <div className="row">
               <div className="col">
               <h1>Home</h1>

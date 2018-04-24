@@ -83,7 +83,7 @@ class Signup extends React.Component {
        return <Redirect to='/signin'/>;
      }
     return (
-      <div className="container">
+      <div className="container" style={{'marginTop':'50px'}}>
         <h1>Sign up</h1>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
