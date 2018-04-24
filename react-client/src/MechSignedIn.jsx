@@ -10,8 +10,7 @@ class MechSignedIn extends React.Component{
 		this.state = {
 			clientName: '',
 			service: '',
-			date: '',
-			services: []
+			date: ''
 		}
 		this.handleChanges = this.handleChanges.bind(this)
 		this.handleSubmit = this.handleSubmit.bind(this)
@@ -39,7 +38,8 @@ handleSubmit(event) {
       }, 
       success: (data) => {
         console.log(data.services)
-        this.setState({services: data.services})
+        this.props.setServices(data.services)
+        //this.setState({services: data.services})
 
       },
       error: (err) => {
@@ -54,8 +54,9 @@ handleSubmit(event) {
 	render(){
 		return(
 			<div>
-			<div style={{margin:'10px'}}>
-          		<button className="btn btn-danger" onClick={this.props.toggle}>Signout</button>
+			<div style={{margin:'30px'}}>
+			<button className="btn btn-danger pull-right" onClick={this.props.toggle}>Signout</button>
+			<h2>Hey there Mr. {this.props.user}!</h2>
           	</div>
 			<form onSubmit={this.handleSubmit}>
 	          <div className="form-group">
@@ -73,7 +74,7 @@ handleSubmit(event) {
 	          <div><button type="submit" className="btn btn-warning" style={{color:'black'}} >Submit</button></div>
           </form>
           <div style={{margin: '80px'}}>
-          <ServicesList services={this.state.services} />
+          <ServicesList services={this.props.services} />
           </div>
 			</div>
 			)
