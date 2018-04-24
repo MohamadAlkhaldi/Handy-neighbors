@@ -76,6 +76,7 @@ function error(err) {
 
 navigator.geolocation.getCurrentPosition(success, error, options);
 }
+
 onMarkerClick(props, marker, e){
     this.setState({
       Place: props,

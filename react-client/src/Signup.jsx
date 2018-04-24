@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import {Redirect} from "react-router-dom";
 import OurMap from './OurMap.jsx';
+// import Mapp from './Mapp.jsx';
 
 class Signup extends React.Component {
   constructor(props) {
@@ -13,7 +14,8 @@ class Signup extends React.Component {
       phonenumber: +962,
       password: '',
       longitude: 0,
-      laltitude: 0
+      laltitude: 0,
+      mssg:''
 
     }
     this.handleChangesU = this.handleChangesU.bind(this);
@@ -92,6 +94,7 @@ class Signup extends React.Component {
       if (redirect) {
        return <Redirect to='/signin'/>;
      }
+
     return (
       <div className="container" style={{'marginTop':'50px'}}>
         <h1>Sign up</h1>
@@ -114,6 +117,7 @@ class Signup extends React.Component {
             <input className="form-control" id="laltitude" placeholder="laltitude" name="laltitude" value={this.state.laltitude} onChange={this.handleChangesLaltitude}/>
          
             </div>
+            <p style={{border: 'solid', borderColor:'black'}}>{this.state.mssg}</p>
           <button type="submit" className="btn btn-warning btn-block btn-lg" style={{color:'black', marginBottom: '10px'}}>Submit</button>
         </form>
         <OurMap setLngLat={this.setLngLat} longitude={this.state.longitude} laltitude={this.state.laltitude}/>
