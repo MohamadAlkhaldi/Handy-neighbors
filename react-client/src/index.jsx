@@ -52,7 +52,7 @@ class Main extends React.Component {
   return (<Router >
   <HashRouter>
     <div >
-      <nav className="navbar navbar-inverse">
+      <nav className="navbar navbar-inverse navbar-fixed-top">
         <div className="container-fluid">
           <div className="navbar-header">
             <a className="navbar-brand " href="#" style={{color:'#E9AB17'}}>Handy Neighbors</a>
