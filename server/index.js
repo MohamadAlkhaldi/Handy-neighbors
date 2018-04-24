@@ -50,6 +50,7 @@ app.post('/signin', function (req, res) {
           console.log('access valid') 
           var obj = {
               username : data.username,
+              services : data.services,
               valid : isMatch
           }
           res.send(obj)
