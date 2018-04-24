@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import Columns from 'react-columns';
 import MechList from './MechList.jsx'
 
 
@@ -9,8 +8,8 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      longitude: '',
-      laltitude: '',
+      lng: '',
+      lat: '',
       mechs: []
     }
    this.handleChangesLongitude = this.handleChangesLongitude.bind(this)
@@ -20,14 +19,14 @@ class Home extends React.Component {
   }
 
   handleChangesLongitude(event) {
-    this.setState({longitude: event.target.value})
-    console.log(this.state.longitude)
+    this.setState({lng: event.target.value})
+    console.log(this.state.lng)
     
   }
 
   handleChangesLaltitude(event) {
-    this.setState({laltitude: event.target.value})
-    console.log(this.state.laltitude)
+    this.setState({lat: event.target.value})
+    console.log(this.state.lat)
     
   }
 
@@ -37,8 +36,8 @@ class Home extends React.Component {
       url: '/',
       data: {
       
-        longitude: this.state.longitude,
-        laltitude: this.state.laltitude
+        longitude: this.state.lng,
+        laltitude: this.state.lat
 
       }, 
       success: (data) => {
@@ -53,11 +52,6 @@ class Home extends React.Component {
   }
 
   render () {
-   
-      // const back = {
-      //   backgroundImage : `url(${img})`
-      // }
-      
 
     return (<div className="container" >
               <div className="row">
@@ -66,8 +60,8 @@ class Home extends React.Component {
               <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
                   <label>Location:</label>
-                  <input className="form-control" id="longitude" placeholder="longitude" name="longitude" value={this.state.longitude} onChange={this.handleChangesLongitude}/>
-                  <input className="form-control" id="laltitude" placeholder="laltitude" name="laltitude" value={this.state.laltitude} onChange={this.handleChangesLaltitude}/>
+                  <input className="form-control" id="longitude" placeholder="longitude" name="longitude" value={this.state.lng} onChange={this.handleChangesLongitude}/>
+                  <input className="form-control" id="laltitude" placeholder="laltitude" name="laltitude" value={this.state.lat} onChange={this.handleChangesLaltitude}/>
                 </div>
                 <button type="submit" className="btn btn-warning" style={{color:'black'}}>Submit</button>
               </form>
