@@ -11,8 +11,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 
-//blabla
-
 app.post('/service', function (req, res) {
     var obj = {
       clientName: req.body.clientName,
@@ -85,17 +83,7 @@ bcrypt.hash(data.password,saltRounds,function(err,hash){
       res.send(data)
     })
     
-})
-// var hash = bcrypt.hashSync(data.password, saltRounds);
-// db.save({username:data.username , password : hash},function(err,data){
-//  if(err){
-//    console.log(err)
-//  }
-//  console.log(data)
-//  res.redirect("/login")
-// })
-
-
+  })
 
 });
 app.get('/signup', function (req, res) {
@@ -106,64 +94,40 @@ app.get('/signup', function (req, res) {
 });
 
 
-// app.post('/signin', function (req, res) {
-//   var data=req.body;
-//   db.findOne(data.username,function(err,datares){
-//    if(err){
-//      res.send(err)
-//    }
-//    res.redirect('index');
-//   })
-  
-  
-// });
-
-// app.get('/signin', function (req, res) {
-//   var data=req.body;
-//   db.findOne(data.username,function(err,datares){
-//    if(err){
-//      res.send(err)
-//    }
-//    res.redirect('index');
-//   })
-  
-  
-// });
-
 app.post('/', function (req, res) {
 
-    function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
-        var R = 6371; // Radius of the earth in km
-        var dLat = deg2rad(lat2-lat1);  // deg2rad below
-        var dLon = deg2rad(lon2-lon1); 
+    function DistanceInKm(lat1,lon1,lat2,lon2) {
+        var radius = 6371; // Radius of the earth in km
+        var Laltitude = deg2rad(lat2-lat1);  // deg2rad below
+        var Longitude = deg2rad(lon2-lon1); 
         var a = 
-          Math.sin(dLat/2) * Math.sin(dLat/2) +
+          Math.sin(Laltitude/2) * Math.sin(Laltitude/2) +
           Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
-          Math.sin(dLon/2) * Math.sin(dLon/2);
+          Math.sin(Longitude/2) * Math.sin(Longitude/2);
           
         var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-        var d = R * c; // Distance in km
-        return d;
+        var distance = radius * c; // Distance in km
+        return distance;
       }
 
-  function deg2rad(deg) {
-    return deg * (Math.PI/180)
-  }
-  var user=req.body;
-
-  db.Technitian.find({},'username longitude laltitude distance phonenumber',function(err,techs){
-    
-    for (var i = 0; i < techs.length; i++) {
-        var dis = getDistanceFromLatLonInKm(user.laltitude , user.longitude, techs[i].laltitude, techs[i].longitude)
-        techs[i].distance = dis
+    function deg2rad(deg) {
+      return deg * (Math.PI/180)
     }
-      function compare(a,b) {
-        if (a.distance < b.distance)
-          return -1;
-        if (a.distance > b.distance)
-          return 1;
-        return 0;
+    var user=req.body;
+
+    db.Technitian.find({},'username longitude laltitude distance phonenumber',function(err,techs){
+    
+      for (var i = 0; i < techs.length; i++) {
+        var dis = DistanceInKm(user.laltitude , user.longitude, techs[i].laltitude, techs[i].longitude)
+        techs[i].distance = dis
       }
+        function compare(a,b) {
+          if (a.distance < b.distance)
+            return -1;
+          if (a.distance > b.distance)
+            return 1;
+          return 0;
+        }
 
     techs.sort(compare);
 
