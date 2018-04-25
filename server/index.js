@@ -37,7 +37,6 @@ app.post('/', function (req, res) {
     }
 
 
-
     //Here we are finding the technitians with the nearest distance for the user and sorting them depending on the nearest 
     //technitian,then we are going to response an array contains the nearest five technitians for the client-side. 
     var user=req.body;
