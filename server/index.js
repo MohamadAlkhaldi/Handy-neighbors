@@ -175,7 +175,8 @@ app.post('/service', function (req, res) {
 })
 
 
-app.listen(process.env.PORT || 3001, function() {
-  console.log('listening on port 3000!');
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
 });
 
