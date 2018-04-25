@@ -79,7 +79,9 @@ class Signup extends React.Component {
 
       }, 
       success: (data) => {
-        if(data !== 'Invalid Input'){
+        if(data === 'exists'){
+          this.setState({mssg : "This username is already used"})
+        }else if(data !== 'Invalid Input'){
           this.setState({ redirect: true })
         } else{
           this.setState({mssg : data})
