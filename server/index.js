@@ -69,7 +69,10 @@ app.post('/signup', function (req, res) {
 bcrypt.hash(data.password,saltRounds,function(err,hash){
   if(err){
     console.log(err)
-  }db.save({
+  }if(data.username==="" || data.password.length < 8 || data.phonenumber.length <12){
+    res.send("Invalid Input")
+  }else{
+  db.save({
       username:data.username,
       password:hash,
       phonenumber:data.phonenumber,
@@ -82,8 +85,9 @@ bcrypt.hash(data.password,saltRounds,function(err,hash){
       }
       res.send(data)
     })
-    
+    }
   })
+
 
 });
 app.get('/signup', function (req, res) {
