@@ -5,6 +5,7 @@ import $ from 'jquery';
 import Signin from './Signin.jsx';
 import Signup from './Signup.jsx';
 import Home from './Home.jsx';
+import Intro from './Intro.jsx';
 import { HashRouter } from 'react-router-dom'
 import { BrowserRouter as Router, Route, Redirect, Link } from "react-router-dom";
 
@@ -62,14 +63,16 @@ class Main extends React.Component {
             <a className="navbar-brand " href="#" style={{color:'#E9AB17'}}>Handy Neighbors</a>
           </div>
           <ul className="nav navbar-nav">
-            <li><Link to="/">Home</Link></li>
+            <li><Link to="/">Intro</Link></li>
+            <li><Link to="/home">Home</Link></li>
             <li><Link to="/signin" >Signin</Link></li>
             <li><Link to="/signup">Signup</Link></li>
           </ul>
         </div>
       </nav>
-      <Route exact path="/" component={Home} />
+      <Route path="/home" component={Home} />
       <Route path="/signin" render={this.MySignin} />
+      <Route exact path="/" component={Intro} />
       <Route path="/signup" component={Signup} />
     
     </div>
