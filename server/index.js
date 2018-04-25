@@ -83,32 +83,33 @@ bcrypt.hash(data.password,saltRounds,function(err,hash){
   }if(data.username === "" || data.password.length < 8 || data.phonenumber.length <12){
     res.send("Invalid Input")
   }else{
+    db.Technitian.count({username: data.username}, function (err, count){ 
+    if(count>0){
+       res.send("exists") 
+    }else{
+
     //Now we are saving the the information for the technitian in the database depending on the schema's data-types,
-    //and we going to specify the distance with zero to compare it with current location for the user.
-  db.save({
-      username:data.username,
-      password:hash,
-      phonenumber:data.phonenumber,
-      longitude: data.longitude,
-      laltitude: data.laltitude,
-      distance: 0
-    },function(err,data){
-      if(err){
-        console.log(err)
+    //and we going to specify the distance as initial value and it will be changed
+    //depending on technitian's location.
+       db.save({
+          username:data.username,
+          password:hash,
+          phonenumber:data.phonenumber,
+          longitude: data.longitude,
+          laltitude: data.laltitude,
+          distance: 0
+        },function(err,data){
+          if(err){
+            console.log(err)
+          }
+          res.send(data)
+        })
       }
-      res.send(data)
-    })
-    }
+    }); 
+   }
   })
 
 
-});
-
-app.get('/signup', function (req, res) {
-  var data=req.body;
-
-  
-  console.log('wseu')
 });
 
 
