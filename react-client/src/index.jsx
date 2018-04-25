@@ -8,13 +8,15 @@ import Home from './Home.jsx';
 import { HashRouter } from 'react-router-dom'
 import { BrowserRouter as Router, Route, Redirect, Link } from "react-router-dom";
 
-//
-
+  // Welcome to our root component! Here we used react router to make it possible for the user to navigate 
+  // the different views of our project.
+  // You can also see that we used a statefull react component, to save values that we need unchanged while navigating different components, don't worry, we will keep posted.
 
 class Main extends React.Component {
   constructor(props){
     super(props);
     this.state = {
+      //The next three values are used in the Signin component, to toggle view SigninForm and SignedIn and to keep the mechanic in his profile page even when he leave the tab, untill he sign out
       v : false,
       username: '',
       services: []
@@ -33,12 +35,12 @@ class Main extends React.Component {
     this.setState({services: arr})
   }
 
-
   toggle(){
     var val = !this.state.v
     this.setState({v : val})
   }
 
+// Next we wrapped our component in a function, so we can pass some props. 
   MySignin(props){
       return (
         <Signin
@@ -47,7 +49,9 @@ class Main extends React.Component {
         />
       );
     }
+//React router resorce: https://reacttraining.com/react-router/core/guides/philosophy
 
+//HashRouter is used here so fixed urls in the browser will take you to the wanted page and more importantly to make redirecting possible
   render(){
   return (<Router >
   <HashRouter>

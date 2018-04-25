@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {Map,  Marker,InfoWindow, GoogleApiWrapper} from 'google-maps-react';
-// import $ from 'jquery';
 
 class OurMap extends Component {
   constructor(props){
@@ -13,44 +12,8 @@ class OurMap extends Component {
       Place: {}
     }
     this.getLoc = this.getLoc.bind(this)
-    // this.handleChangesLongitude = this.handleChangesLongitude.bind(this)
-    // this.handleChangesLaltitude = this.handleChangesLaltitude.bind(this)
-    // this.handleSubmit = this.handleSubmit.bind(this)
-
   }
 
-  // handleChangesLongitude(event) {
-  //   this.setState({lng: event.target.value})
-  //   console.log(this.state.lng)
-    
-  // }
-
-  // handleChangesLaltitude(event) {
-  //   this.setState({lat: event.target.value})
-  //   console.log(this.state.lat)
-    
-  // }
-
-  // handleSubmit(event) {
-  //   $.ajax({
-  //     type : 'POST',
-  //     url: '/',
-  //     data: {
-      
-  //       longitude: this.state.lng,
-  //       laltitude: this.state.lat
-
-  //     }, 
-  //     success: (data) => {
-  //       this.props.setMech(data)
-  //       console.log('success', data)
-  //     },
-  //     error: (err) => {
-  //       console.log('err', err);
-  //     }
-  //   });
-  //   event.preventDefault();
-  // }
 
 getLoc(){
   var that = this
@@ -128,14 +91,3 @@ export default GoogleApiWrapper({
   apiKey: ("AIzaSyDVwtOBPrV-eKuemXtXxpMsPjmfjBOB9oo")
 })(OurMap)
 
-
-// fcsda<div>
-//              <form onSubmit={this.handleSubmit}>
-//                 <div className="form-group">
-//                   <label>Location:</label>
-//                   <input className="form-control" id="longitude" placeholder="longitude" name="longitude" value={this.state.lng} onChange={this.handleChangesLongitude}/>
-//                   <input className="form-control" id="laltitude" placeholder="laltitude" name="laltitude" value={this.state.lat} onChange={this.handleChangesLaltitude}/>
-//                 </div>
-//                 <button type="submit" className="btn btn-warning btn-block" style={{color:'black', marginBottom:'10px'}}>Submit</button>
-//               </form>
-//               </div> 

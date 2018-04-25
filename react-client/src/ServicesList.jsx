@@ -1,5 +1,7 @@
 import React from'react';
-import Service from './Service.jsx'
+import Service from './Service.jsx'//list item component 
+
+//The services list to be rendered on signedIn page
 
 class ServicesList extends React.Component{
     constructor(props){

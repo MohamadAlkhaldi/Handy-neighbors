@@ -2,8 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Signin from './Signin.jsx';
-import MechSignedIn from './MechSignedIn.jsx';
 
+
+//This component is a child to Signin, it will be rendered when "v" value is false,
+//not much happening here, a usual form sending data to the server for checking, and when checked it will toggle the value of 'v' to true and disappear, search for the word 'here' to see where we are toggling the value of v.
 class SigninForm extends React.Component {
   constructor(props) {
     super(props);
@@ -40,13 +42,14 @@ class SigninForm extends React.Component {
         password: this.state.password
       }, 
       success: (data) => {
+        //data will be an object with the username and an array of services for right credintials, and false if not
         console.log(data)
         if(data){
           this.props.setServices(data.services)
+        //Here
           this.props.toggle()
         } else{
           this.setState({mssg: 'Invalid username or password'})
-          console.log('wrong')
         }
       },
       error: (err) => {
