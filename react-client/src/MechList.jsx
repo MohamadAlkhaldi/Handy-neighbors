@@ -1,5 +1,7 @@
 import React from'react';
-import Mechanic from './Mechanic.jsx'
+import Mechanic from './Mechanic.jsx'//list item component
+
+//The mechanics list to be rendered on the home page
 
 class MechList extends React.Component{
     constructor(props){

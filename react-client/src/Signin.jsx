@@ -2,34 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import SigninForm from './SigninForm.jsx';
-import MechSignedIn from './MechSignedIn.jsx';
+import SignedIn from './SignedIn.jsx';
 import { BrowserRouter as Router, Route, Redirect, Link } from "react-router-dom";
 
+//This is a component that have two children components, and it will render only one of them regarding the value of a v which will switch from false to ture when the mech sign in with the right credintials -MechSignedIn- and will get back to false -SigninForm- when he signout.
+
 class Signin extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { 
-      username: '',
-      services: []
-
-    }
-    //this.toggle = this.toggle.bind(this)
-    // this.setUsername = this.setUsername.bind(this)
-    // this.setServices = this.setServices.bind(this)
-  }
-
-  // toggle(){
-  //   var val = !this.state.childVisible
-  //   this.setState({childVisible : val})
-  // }
-
-  // setUsername(user){
-  //   this.setState({username: user})
-  // }
-
-  // setServices(arr){
-  //   this.setState({services: arr})
-  // }
   
   render () {
     
@@ -40,7 +18,7 @@ class Signin extends React.Component {
       }
       </div>
       <div>
-        {this.props.v ? <MechSignedIn toggle={this.props.toggle} user={this.props.username} services={this.props.services} setServices={this.props.setServices}/> : null
+        {this.props.v ? <SignedIn toggle={this.props.toggle} user={this.props.username} services={this.props.services} setServices={this.props.setServices}/> : null
       }
       </div>
     </div>)

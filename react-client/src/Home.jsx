@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Columns from 'react-columns';
-import MechList from './MechList.jsx'
-// import Mapp from './Mapp.jsx';
-import OurMap from './OurMap.jsx';
+import MechList from './MechList.jsx';
+import OurMap from './OurMap.jsx'; //the map component where we will get the location using Geolocation
+
+
+// Welcome to our Home page! the only page the user will need to get the service
 
 
 class Home extends React.Component {
@@ -18,16 +20,19 @@ class Home extends React.Component {
    this.handleChangesLongitude = this.handleChangesLongitude.bind(this)
    this.handleChangesLaltitude = this.handleChangesLaltitude.bind(this)
    this.handleSubmit = this.handleSubmit.bind(this)
-   this.setMech = this.setMech.bind(this)
+   // this.setMech = this.setMech.bind(this)
    this.setLngLat = this.setLngLat.bind(this);
 
   }
+
+//This function will be passed to the child component OurMap, where we will call it and pass the user longitude and laltitude so change them in the state of this component, which will make them accessible in the ajax post request.
 
   setLngLat(lng, lat){
       this.setState({longitude: lng,
                      laltitude: lat})
   }
 
+  //here we will change this.state.longitude when ever the value of the textbox is changed
   handleChangesLongitude(event) {
     this.setState({longitude: event.target.value})
     console.log(this.state.longitude)
@@ -40,10 +45,11 @@ class Home extends React.Component {
     
   }
 
-  setMech(mechs){
-    this.setState({mechs: mechs})
-  }
+  // setMech(mechs){
+  //   this.setState({mechs: mechs})
+  // }
 
+  //sending longitude and laltitude, and recieving an array of the nearest five mechanics
   handleSubmit(event) {
     $.ajax({
       type : 'POST',
@@ -80,7 +86,7 @@ class Home extends React.Component {
                   <input className="form-control" id="longitude" placeholder="longitude" name="longitude" value={this.state.longitude} onChange={this.handleChangesLongitude}/>
                   <input className="form-control" id="laltitude" placeholder="laltitude" name="laltitude" value={this.state.laltitude} onChange={this.handleChangesLaltitude}/>
                 </div>
-                <button type="submit" className="btn btn-warning btn-block btn-lg" style={{color:'black', marginBottom: '10px'}}>Submit</button>
+                <button type="submit" className="btn btn-warning btn-block btn-lg" style={{color:'black', marginBottom: '10px'}}>Get me the nearest mechanics!</button>
               </form>
               </div>
               <OurMap setLngLat={this.setLngLat} longitude={this.state.longitude} laltitude={this.state.laltitude}/>
