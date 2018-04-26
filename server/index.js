@@ -161,7 +161,7 @@ app.post('/service', function (req, res) {
     }
   db.Technitian.findOne({username:req.body.username},'username services',function(err,data){
     console.log(data)
-   data.services.push(obj);
+   data.services.unshift(obj);
     db.save(data,function(err,data){
       if(err){
         console.log(err)
