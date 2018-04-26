@@ -89,10 +89,10 @@ class Home extends React.Component {
                 <button type="submit" className="btn btn-warning btn-block btn-lg" style={{color:'black', marginBottom: '10px'}}>Get me the nearest mechanics!</button>
               </form>
               </div>
-              <OurMap setLngLat={this.setLngLat} longitude={this.state.longitude} laltitude={this.state.laltitude}/>
-              </div>
-              <div style={{margin: '80px', paddingTop:'25%'}}>
+              <div style={{margin: '15px'}}>
               <MechList mechs={this.state.mechs}/>
+              </div>
+              <OurMap setLngLat={this.setLngLat} longitude={this.state.longitude} laltitude={this.state.laltitude}/>
               </div>
               </div>
             </div>)
