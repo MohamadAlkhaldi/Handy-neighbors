@@ -28,7 +28,7 @@ class Intro extends React.Component {
 		</div>
 
 		<div className="col-md-6 col-md-offset-2"  style={{'marginTop':'30px'}}>
-		<a  className="col-md-6 col-md-offset-4" href="#/home" style={{textDecoration: 'none', 'borderRadius': '15px', 'backgroundColor' : '#E9AB17'}}>
+		<a  className="col-md-6 col-md-offset-4" href="#/signup" style={{textDecoration: 'none', 'borderRadius': '15px', 'backgroundColor' : '#E9AB17'}}>
 			
 			<img style={{'marginTop':'10px', 'marginLeft':'26%'}} src="https://d30y9cdsu7xlg0.cloudfront.net/png/192296-200.png"/>
 			<br/>
