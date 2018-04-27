@@ -124,6 +124,7 @@ class Signup extends React.Component {
         </div>
         <div className="form-group">
           <label>Location:</label>
+          <p>Don't worry! we will fill this one for you :)</p>
           <input className="form-control" id="longitude" placeholder="longitude" name="longitude" value={this.state.longitude} onChange={this.handleChangesLongitude}/>
           <input className="form-control" id="laltitude" placeholder="laltitude" name="laltitude" value={this.state.laltitude} onChange={this.handleChangesLaltitude}/>
 
