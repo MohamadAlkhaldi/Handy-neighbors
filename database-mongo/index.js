@@ -24,6 +24,7 @@ db.once('open', function() {
     longitude:Number,
     laltitude:Number,
     distance:Number,
+    email:String,
     //For this datatype below is an Array of services that will have a list for the 
     //technitian that he will fill them in his own profile,and these services will be 
     //rendered in technitian profile after saving process.

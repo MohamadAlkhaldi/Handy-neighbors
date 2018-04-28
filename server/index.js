@@ -41,7 +41,7 @@ app.post('/', function (req, res) {
     //technitian,then we are going to response an array contains the nearest five technitians for the client-side. 
     var user=req.body;
 
-    db.Technitian.find({},'username longitude laltitude distance phonenumber',function(err,techs){
+    db.Technitian.find({},'username longitude laltitude distance phonenumber email',function(err,techs){
     
       for (var i = 0; i < techs.length; i++) {
         var dis = DistanceInKm(user.laltitude , user.longitude, techs[i].laltitude, techs[i].longitude)
@@ -96,7 +96,8 @@ bcrypt.hash(data.password,saltRounds,function(err,hash){
           phonenumber:data.phonenumber,
           longitude: data.longitude,
           laltitude: data.laltitude,
-          distance: 0
+          distance: 0,
+          email:req.body.email
         },function(err,data){
           if(err){
             console.log(err)
