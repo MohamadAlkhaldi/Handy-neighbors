@@ -76,6 +76,7 @@ class Home extends React.Component {
     
 
     return (<div className="container" style={{'marginTop':'50px'}}>
+
             <div>
               <div>
               <h1>Home</h1>
@@ -91,7 +92,8 @@ class Home extends React.Component {
               </form>
               </div>
               <div style={{margin: '15px'}}>
-              <MechList mechs={this.state.mechs}/>
+              <h4>Choose a mechanic:</h4>
+              <MechList mechs={this.state.mechs} longitude={this.state.longitude} laltitude={this.state.laltitude}/>
               </div>
               <OurMap setLngLat={this.setLngLat} longitude={this.state.longitude} laltitude={this.state.laltitude}/>
               </div>
@@ -100,6 +102,6 @@ class Home extends React.Component {
   }
 }
 
-
+//<a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">Send Mail</a>
 
 export default Home;

@@ -17,6 +17,7 @@ class Signup extends React.Component {
       password: '',
       longitude: 0,
       laltitude: 0,
+      email: '',
       mssg: ''
     }
 
@@ -27,6 +28,7 @@ class Signup extends React.Component {
     this.handleChangesLongitude = this.handleChangesLongitude.bind(this)
     this.handleChangesLaltitude = this.handleChangesLaltitude.bind(this)
     this.setLngLat = this.setLngLat.bind(this);
+    this.handleChangesEmail = this.handleChangesEmail.bind(this);
   }
 
   //this function will be passed to the child component OurMap, so we can call it there and pass longitude and laltitude with it
@@ -65,6 +67,12 @@ class Signup extends React.Component {
     
   }
 
+  handleChangesEmail(event) {
+    this.setState({email: event.target.value})
+    console.log(this.state.email)
+    
+  }
+
 //sending all the mech information to the server and checking input validity, if valid we will redirect him to the sign in page, by changing the value of redirect to true and the rest is hapening below, check the first few lines in the render function.
   handleSubmit(event) {
     $.ajax({
@@ -72,6 +80,7 @@ class Signup extends React.Component {
       url: '/signup',
       data: {
         username: this.state.username,
+        email: this.state.email,
         password: this.state.password,
         phonenumber: this.state.phonenumber,
         longitude: this.state.longitude,
@@ -111,6 +120,10 @@ class Signup extends React.Component {
         <div className="form-group">
           <label >Username:</label>
           <input className="form-control" id="username" placeholder="Enter username" name="username" value={this.state.username} onChange={this.handleChangesU}/>
+        </div>
+        <div className="form-group">
+          <label >Email:</label>
+          <input className="form-control" id="email" placeholder="Enter email" name="email" value={this.state.email} onChange={this.handleChangesEmail}/>
         </div>
         <div className="form-group">
           <label >Phone number:</label>

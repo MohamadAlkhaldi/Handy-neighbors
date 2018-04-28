@@ -25,12 +25,12 @@ class Intro extends React.Component {
 		 <Row className="show-grid">
 		    <Col md={6}>
 			    <a  href="#/home" style={{textDecoration: 'none'}}>
-							<img style={{'borderRadius': '15px', 'border' : 'solid', 'borderColor' : 'black', borderWidth:'thick'}} src="https://ibb.co/bUsiPH" height="100%" width="100%"/>
+							<img style={{'borderRadius': '15px', 'border' : 'solid', 'borderColor' : 'black', borderWidth:'thick'}} src="http://i65.tinypic.com/2jfyx5g.jpg" height="100%" width="100%"/>
 				</a>
 			</Col>
 			<Col md={6}>
 				<a   href="#/signup" style={{textDecoration: 'none'}}>
-					<img style={{'borderRadius': '15px', 'border' : 'solid', 'borderColor' : 'black', borderWidth:'thick'}} src="https://ibb.co/ga0EWx" height="100%" width="100%"/>
+					<img style={{'borderRadius': '15px', 'border' : 'solid', 'borderColor' : 'black', borderWidth:'thick'}} src="http://i65.tinypic.com/35alwr9.jpg" height="100%" width="100%"/>
 				</a>
 			</Col>
 		</Row>
