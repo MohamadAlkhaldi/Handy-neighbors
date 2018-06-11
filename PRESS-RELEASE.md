@@ -3,11 +3,8 @@
 # Handy Neighbors #
 
 
-## Heading ##
+## What is Handy Neighbors ##
   > Handy Neighbors is a web application, that will help clients with their broken cars, where ever it happens, to find the nearest michanics that will show up to the rescue!
-
-## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
 
 ## Summary ##
   > Get a mechanic to the rescue with a single click.
@@ -19,12 +16,11 @@
   > Why make this ruin your day when you can get it fixed by one click!
   our web application gives you the nearest mechanics to your location.
 
-## Quote from You ##
+## Mission ##
   >In Handy Neighbors we strive to provide our user with the most efficent and convinent experience
 
 ## How to Get Started ##
-  > Get a mechanic with one click!
-  Open the web site hit the search button and that's it!
+  > Open the web site hit the search button and that's it!
 
 ## Customer Quote ##
   > My car is broken in Amman, my mechanic is in China, I don't care, Handy Neighbors has got my back.

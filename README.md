@@ -45,11 +45,6 @@ npm install
 bower install
 ``` -->
 
-### Roadmap
+## Visit our website
 
-View the project roadmap [here](https://waffle.io/Handy-neighbors/Handy-neighbors)
-
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
+https://nameless-forest-76502.herokuapp.com/
